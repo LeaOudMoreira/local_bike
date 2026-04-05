@@ -1,6 +1,6 @@
 SELECT 
-store_id,
-store_name,
+s.store_id,
+s.store_name,
 city,
 count(distinct order_id) AS total_order,
 sum(total_amount_item) AS revenue
