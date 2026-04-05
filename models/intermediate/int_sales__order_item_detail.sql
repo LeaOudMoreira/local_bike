@@ -13,3 +13,4 @@ LEFT JOIN  {{ref('stg_local_bike__orders')}} o ON oi.order_id = o.order_id
 
 
 
+
