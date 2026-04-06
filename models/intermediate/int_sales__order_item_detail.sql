@@ -1,5 +1,6 @@
 SELECT
 oi.order_id,
+o.order_date,
 o.store_id,
 store.store_name,
 o.staff_id,

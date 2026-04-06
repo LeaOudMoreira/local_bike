@@ -1,0 +1,11 @@
+SELECT
+order_date,
+store_name,
+
+concat(first_name," ",last_name) AS staff_name,
+customer_id,
+product_id,
+quantity,
+list_price,
+discount,
+(quantity*list_price)*(1-discount) AS total_amount_item
