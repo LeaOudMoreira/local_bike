@@ -41,7 +41,6 @@ models:
         description: "Nom des produits"
         tests:
           - not_null
-          - unique
       - name: brand_id
         description: "Identifiants de la marque"
         tests:

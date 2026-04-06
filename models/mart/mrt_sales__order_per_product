@@ -1,0 +1,7 @@
+SELECT 
+brand_name,
+category_name,
+product_name,
+sum(total_amount_item) AS total_revenue
+FROM {{ ref('int_sales__order_item_detail') }} oid
+LEFT JOIN {{ ref('stg_local_bike__products') }} p ON p.product_id = oid.product_id 
