@@ -1,6 +1,7 @@
 select 
 staff_name,
-store_name,
+s.store_name,
 sum(total_amount_item) AS total_revenu
-FROM {{ ref('int_sales__order_item_detail') }} 
+FROM {{ ref('int_sales__order_item_detail') }} oid
+LEFT JOIN {{ ref('int_sales__stores') }} s ON s.store_id = oid.store_id
 group by staff_name, store_name
