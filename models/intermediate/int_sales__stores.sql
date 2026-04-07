@@ -19,8 +19,10 @@ FROM {{ ref('stg_local_bike__stocks') }}
 SELECT 
 stk.store_id,
 s.store_name,
+city,
+state,
+zip_code,
 stk.product_id,
-product_name,
 stk.quantity AS stock,
 count(distinct order_id) AS total_order,
 sum(order_item_amount) AS total_order_item,
@@ -28,5 +30,4 @@ sum(total_amount_item) AS revenue
 FROM stock_concat stk 
 LEFT JOIN order_item_detail_concat oid ON oid.store_product_id = stk.store_product_id 
 LEFT JOIN {{ ref('stg_local_bike__stores') }} s ON stk.store_id = s.store_id
-LEFT JOIN {{ ref('stg_local_bike__products') }} p ON p.product_id = stk.product_id
-GROUP BY store_id, store_name, product_id,product_name,stock
+GROUP BY store_id, store_name,city,state,zip_code, product_id,stock
